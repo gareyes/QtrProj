@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Reyes, Gabriele</title>
+    <meta charset="UTF-8">		
+	<meta name="author" content="Gabriele Reyes">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+	<meta name="revised" content="19-05-2022">
+</head>
+
+    <style>
+        body {
+            font-family: Verdana;
+        }
+        
+        input, select {
+            margin-top: 5px;
+            width: 170px;
+            height: 25px;
+            text-align: center;
+        }
+    </style>
+<body>
+
+<h1>My Tip Calculator</h1>
+
+<p id="welc"></p>
+
+<form>
+   <label for = "bill">Cost of your bill:</label> <br>
+   <input type = "text" name = "bill" id = "bill">
+   <br><br>
+   
+   <label for = "tip">Rate the services:</label> <br>
+   <select name = "tip" id = "tip">
+       <option value ="default" selected disabled>--Please select Tip--</option>
+       <option value = "0.30">30% - Love it!</option>
+       <option value = "0.20">20% - Good!</option>
+       <option value = "0.15">15% - Kind of ok!</option>
+       <option value = "0.10">10% - Bad!</option>
+       <option value = "0.05">5% - Terrible Service.</option>
+    </select>
+    <br><br>
+    
+    <label for = "ppl">Number of people:</label> <br>
+    <input type = "text" name = "ppl" id = "ppl">
+    <br><br>
+    
+    <input type = "button" onclick = "tipamt()" value = "Calculate the Tip Amount">
+    
+    <h4 id = "amount"></h4>
+
+<script>
+    let custName = prompt("Your Name:");
+    document.getElementById("welc").innerHTML = "Welcome, " + custName + "!";
+
+    function tipamt() {
+       var bill = document.getElementById("bill").value;
+       var rate = document.getElementById("tip").value;
+       var payers = document.getElementById("ppl").value;
+       var tip = (bill * rate) / payers;
+       
+       if (payers == 1) {
+       document.getElementById("amount").innerHTML = "Your tip amount is " + tip + ".";
+       }
+       
+       else {
+       document.getElementById("amount").innerHTML = "The amount of tip per person is " + tip + ".";
+       }     
+    }
+</script>
+
+</body>
+</html>
